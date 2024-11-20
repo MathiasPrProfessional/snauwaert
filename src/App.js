@@ -33,6 +33,7 @@ function App() {
     });
 
     setActionHistory([...actionHistory, { type: 'add', person: currentPerson, drink: drinkName, price }]);
+    setCurrentPerson(null);
   };
 
   const settleUp = (person) => {
@@ -44,6 +45,7 @@ function App() {
       setTabs({ ...tabs, [person]: { drinks: [], total: 0 } });
       setActionHistory([...actionHistory, { type: 'settle', person, amount: personTab.total, list: personTab }]);
     }
+    
   };
 
   const undoLastAction = () => {
