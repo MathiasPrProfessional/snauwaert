@@ -52,7 +52,8 @@ function App() {
       return;
     }
     const lastAction = actionHistory.pop();
-    const { person, type, drink, price, amount, list } = lastAction;
+    // eslint-disable-next-line no-unused-vars
+    const { person, type, drink,  price, amount, list } = lastAction;
 
     setTabs(prevTabs => {
       const personTab = prevTabs[person] || { drinks: [], total: 0 };
