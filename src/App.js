@@ -33,7 +33,7 @@ function App() {
     });
 
     setActionHistory([...actionHistory, { type: 'add', person: currentPerson, drink: drinkName, price }]);
-    setCurrentPerson(null);
+    
   };
 
   const settleUp = (person) => {
@@ -130,7 +130,7 @@ function App() {
           <h2>Seleer een drank voor {currentPerson}</h2>
           <div className="drink-container">
             {initialDrinks.map((drink, index) => (
-              <DrinkButton key={index} drink={drink} color={drinkColors[drink.name]} addDrink={() => addDrink(drink.name, drink.price)} />
+              <DrinkButton key={index} drink={drink} color={drinkColors[drink.name]} addDrink={() => addDrink(drink.name, drink.price)} onClick={() => setCurrentPerson(null)} />
             ))}
           </div>
           <h3>Current Tab: {tabs[currentPerson]?.drinks.join(', ')} | Totaal: €{(tabs[currentPerson]?.total / 100 || 0).toFixed(2)}</h3>
