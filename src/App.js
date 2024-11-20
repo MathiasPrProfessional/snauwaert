@@ -3,44 +3,8 @@ import './App.css';
 import PersonButton from './components/PersonButton';
 import DrinkButton from './components/DrinkButton';
 import TabModal from './components/TabModal';
-
-const initialPeople = ['Ann', 'Arno', 'Bjorn & Caroline', 'Dave', 'Dirk & Sabine', 'Frank & Petra', 'Joris & Joyce', 'Kris & Sucky', 'Luc & Anja', 'Matthias', 'Nico & Anne', 'Petrus', 'Sam', 'Sven', 'Tom De Backer', 'Tom Nuyts'];
-// Define dimmer colors for each person
-const personColors = {
-    'Ann': '#A0522D',         // Sienna
-    'Arno': '#6B8E23',         // Olive Drab
-    'Bjorn & Caroline': '#4682B4', // Steel Blue
-    'Dave': '#D87093',         // Pale Violet Red
-    'Dirk & Sabine': '#DAA520',  // Golden Rod
-    'Frank & Petra': '#CD853F',   // Peru
-    'Joris & Joyce': '#708090',  // Slate Gray
-    'Kris & Sucky': '#556B2F',  // Dark Olive Green
-    'Luc & Anja': '#C71585',    // Medium Violet Red
-    'Matthias': '#B8860B',      // Dark Golden Rod
-    'Nico & Anne': '#A52A2A',   // Brown
-    'Petrus': '#5F9EA0',        // Cadet Blue
-    'Sam': '#D8BFD8',           // Thistle
-    'Sven': '#800080',          // Purple
-    'Tom De Backer': '#8B4513', // Saddle Brown
-    'Tom Nuyts': '#2F4F4F'      // Dark Slate Gray
-  };
-const initialDrinks = [
-  { name: 'Aquarius', price: 350 },
-  { name: 'Boerke', price: 300 },
-  { name: 'Cava glas', price: 500 },
-  { name: 'Cecemel', price: 350 },
-  { name: 'Chouffe', price: 420 },
-  { name: 'Duvel', price: 450 },
-  { name: 'Gemberthee', price: 500 },
-  { name: 'Hoegaarden', price: 300 },
-  { name: 'IceTea', price: 300 },
-  { name: 'Koffie', price: 300 },
-  { name: 'Pintje 33cl', price: 320 },
-  { name: 'Tripel d\'Anvers', price: 450 },
-  { name: 'Water', price: 300 },
-  { name: 'Wijn', price: 500 },
-  { name: 'Cava fles', price: 2500 }
-];
+import { initialPeople, personColors } from './data/people';
+import { initialDrinks, drinkColors } from './data/drinks';
 
 function App() {
   const [currentPerson, setCurrentPerson] = useState(null);
@@ -72,8 +36,10 @@ function App() {
   };
 
   const settleUp = (person) => {
+    
     const personTab = tabs[person];
     if (personTab) {
+      alert(person + " moet €" +personTab.total/100+ " betalen.")
       setSettledAmount(prev => prev + personTab.total);
       setTabs({ ...tabs, [person]: { drinks: [], total: 0 } });
       setActionHistory([...actionHistory, { type: 'settle', person, amount: personTab.total, list: personTab }]);
@@ -82,7 +48,7 @@ function App() {
 
   const undoLastAction = () => {
     if (actionHistory.length === 0) {
-      alert("No actions to undo.");
+      alert("Geen acties om ongedaan te maken");
       return;
     }
     const lastAction = actionHistory.pop();
@@ -114,7 +80,7 @@ function App() {
         const drinkPrice = initialDrinks.find(d => d.name === drinkName).price;
         personTab.drinks.splice(drinkIndex, 1);
         personTab.total -= drinkPrice;
-        if (personTab.total < 0) personTab.total = 0;
+        if (personTab.total <= 0) personTab.total = 0;
       }
       return { ...prevTabs };
     });
@@ -154,19 +120,19 @@ function App() {
             ))}
           </div>
           <div className="rest-due">Nog te betalen: €{(Object.values(tabs).reduce((a, c) => a + c.total, 0) / 100).toFixed(2)}</div>
-          <button onClick={resetAllTabs}>Reset Alle rekeningen</button>
+          <button className="other-button" onClick={resetAllTabs}>Reset Alle rekeningen</button>
         </div>
       ) : (
         <div className="screen">
           <h2>Seleer een drank voor {currentPerson}</h2>
           <div className="drink-container">
             {initialDrinks.map((drink, index) => (
-              <DrinkButton key={index} drink={drink} addDrink={() => addDrink(drink.name, drink.price)} />
+              <DrinkButton key={index} drink={drink} color={drinkColors[drink.name]} addDrink={() => addDrink(drink.name, drink.price)} />
             ))}
           </div>
-          <h3>Current Tab: {tabs[currentPerson]?.drinks.join(', ')} | Totaal: €{(tabs[currentPerson]?.total / 100).toFixed(2)}</h3>
-          <button onClick={() => settleUp(currentPerson)}>Reken af</button>
-          <button onClick={() => setModalVisible(true)}>Wijzig rekening</button>
+          <h3>Current Tab: {tabs[currentPerson]?.drinks.join(', ')} | Totaal: €{(tabs[currentPerson]?.total / 100 || 0).toFixed(2)}</h3>
+          <button className="other-button" onClick={() => settleUp(currentPerson)}>Reken af</button>
+          <button className="other-button" onClick={() => setModalVisible(true)}>Wijzig rekening</button>
         </div>
       )}
 

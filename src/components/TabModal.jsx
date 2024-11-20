@@ -10,7 +10,7 @@ const TabModal = ({ person, tab, onClose, onDeleteDrink }) => {
           {tab.drinks.map((drink, index) => (
             <div key={index}>
               {drink}
-              <button onClick={() => onDeleteDrink(person, index)}>Delete</button>
+              <button className="modal-button" onClick={() => onDeleteDrink(person, index)}>Verwijder</button>
             </div>
           ))}
         </div>
