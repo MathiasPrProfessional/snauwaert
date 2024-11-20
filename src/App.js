@@ -9,7 +9,10 @@ import { initialDrinks, drinkColors } from './data/drinks';
 function App() {
   const [currentPerson, setCurrentPerson] = useState(null);
   const [tabs, setTabs] = useState(() => JSON.parse(localStorage.getItem('tabs')) || {});
-  const [actionHistory, setActionHistory] = useState(() => JSON.parse(localStorage.getItem('actionHistory')) || {});
+  const [actionHistory, setActionHistory] = useState(() => {
+    const storedActionHistory = localStorage.getItem('actionHistory');
+    return storedActionHistory ? JSON.parse(storedActionHistory) : [];
+  });
   const [modalVisible, setModalVisible] = useState(false);
   const [settledAmount, setSettledAmount] = useState(0);
 
@@ -53,11 +56,15 @@ function App() {
       alert("Geen acties om ongedaan te maken");
       return;
     }
-    const lastAction = actionHistory.pop();
+  
+    const lastAction = actionHistory[actionHistory.length - 1];
+    
+    setActionHistory(actionHistory.slice(0, -1));
+    
     // eslint-disable-next-line no-unused-vars
-    const { person, type, drink,  price, amount, list } = lastAction;
-
-    setTabs(prevTabs => {
+    const { person, type, drink, price, amount, list } = lastAction;
+  
+    setTabs((prevTabs) => {
       const personTab = prevTabs[person] || { drinks: [], total: 0 };
       switch (type) {
         case 'add':
@@ -65,7 +72,7 @@ function App() {
           personTab.total -= price;
           break;
         case 'settle':
-          setSettledAmount(prev => prev - amount);
+          setSettledAmount((prev) => prev - amount);
           prevTabs[person] = list;
           break;
         default:
