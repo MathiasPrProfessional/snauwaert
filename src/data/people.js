@@ -1,4 +1,4 @@
-export const initialPeople = ['Ann', 'Arno', 'Bjorn & Caroline', 'Dave', 'Dirk & Sabine', 'Frank & Petra', 'Joris & Joyce', 'Kris & Sucky', 'Luc & Anja', 'Matthias', 'Nico & Anne', 'Petrus', 'Sam', 'Sven', 'Tom De Backer', 'Tom Nuyts'];
+export const initialPeople = ['Ann', 'Arno', 'Bjorn & Caroline', 'Dave', 'Dirk & Sabine', 'Frank & Petra', 'Joris & Joyce', 'Kris & Sucky', 'Luc & Anja', 'Mathias P', 'Nico & Anne', 'Petrus', 'Matthias VDC', 'Sam', 'Sven', 'Tom DB', 'Tom N'];
 
 export const personColors = {
     'Ann': '#A0522D',         // Sienna
@@ -10,11 +10,12 @@ export const personColors = {
     'Joris & Joyce': '#708090',  // Slate Gray
     'Kris & Sucky': '#556B2F',  // Dark Olive Green
     'Luc & Anja': '#C71585',    // Medium Violet Red
-    'Matthias': '#B8860B',      // Dark Golden Rod
+    'Mathias P': '#B8860B',      // Dark Golden Rod
     'Nico & Anne': '#A52A2A',   // Brown
     'Petrus': '#5F9EA0',        // Cadet Blue
+    'Matthias VDC': '#5F9EE5',
     'Sam': '#D8BFD8',           // Thistle
     'Sven': '#800080',          // Purple
-    'Tom De Backer': '#8B4513', // Saddle Brown
-    'Tom Nuyts': '#2F4F4F'      // Dark Slate Gray
+    'Tom DB': '#8B4513', // Saddle Brown
+    'Tom N': '#2F4F4F'      // Dark Slate Gray
   };
