@@ -4,16 +4,16 @@ body {
   color: white;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Prevent scrolling */
+  overflow: auto; /* Enable scrolling when necessary */
 }
 
 .app {
-  padding: 10px; /* Reduce padding */
+  padding: 10px; /* Keep reduced padding */
   text-align: center;
 }
 
 .screen {
-  margin: 10px; /* Reduce margin */
+  margin: 10px; /* Keep reduced margin */
 }
 
 .top-bar {
@@ -38,16 +38,16 @@ body {
   margin-bottom: 5px; /* Add margin to the bottom */
   font-size: 20px;     /* Increase font size for visibility */
   font-weight: bold;   /* Make the text bold for emphasis */
-  color: white;      /* Use a lighter gray for text color */
+  color: white;        /* Use a lighter gray for text color */
   text-align: center;  /* Center the text */
 }
 
 .rest-due, .tab-amount {
-  margin-top: 5px;   /* Add margin to the top */
+  margin-top: 5px;     /* Add margin to the top */
   margin-bottom: 10px; /* Add margin to the bottom */
   font-size: 20px;     /* Increase font size for visibility */
   font-weight: bold;   /* Make the text bold for emphasis */
-  color: white;      /* Use a lighter gray for text color */
+  color: white;        /* Use a lighter gray for text color */
   text-align: center;  /* Center the text */
 }
 
@@ -102,7 +102,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Ensure modal fits */
+  overflow: auto; /* Allow the modal to scroll if content overflows */
 }
 
 .modal-content {
