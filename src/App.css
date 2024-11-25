@@ -33,7 +33,7 @@ body {
   border-radius: 5px;
 }
 
-.total-due {
+.total-due, .current-tab {
   margin-top: 20px;   /* Add margin to the top */
   margin-bottom: 5px; /* Add margin to the bottom */
   font-size: 20px;     /* Increase font size for visibility */
@@ -42,7 +42,7 @@ body {
   text-align: center;  /* Center the text */
 }
 
-.rest-due {
+.rest-due, .tab-amount {
   margin-top: 5px;   /* Add margin to the top */
   margin-bottom: 10px; /* Add margin to the bottom */
   font-size: 20px;     /* Increase font size for visibility */

@@ -140,7 +140,8 @@ function App() {
               <DrinkButton key={index} drink={drink} color={drinkColors[drink.name]} addDrink={() => addDrink(drink.name, drink.price)} onClick={() => setCurrentPerson(null)} />
             ))}
           </div>
-          <h3>Current Tab: {tabs[currentPerson]?.drinks.join(', ')} | Totaal: €{(tabs[currentPerson]?.total / 100 || 0).toFixed(2)}</h3>
+          <div className="current-tab">Huidge rekening: {tabs[currentPerson]?.drinks.join(', ')}</div>
+          <div className="tab-amount">Totaal: €{(tabs[currentPerson]?.total / 100 || 0).toFixed(2)}</div>
           <div className="button-group">
             <button className="other-button" onClick={() => settleUp(currentPerson)}>
               Reken af
