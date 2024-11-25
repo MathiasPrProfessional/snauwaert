@@ -141,8 +141,14 @@ function App() {
             ))}
           </div>
           <h3>Current Tab: {tabs[currentPerson]?.drinks.join(', ')} | Totaal: €{(tabs[currentPerson]?.total / 100 || 0).toFixed(2)}</h3>
-          <button className="other-button" onClick={() => settleUp(currentPerson)}>Reken af</button>
-          <button className="other-button" onClick={() => setModalVisible(true)}>Wijzig rekening</button>
+          <div className="button-group">
+            <button className="other-button" onClick={() => settleUp(currentPerson)}>
+              Reken af
+            </button>
+            <button className="other-button" onClick={() => setModalVisible(true)}>
+              Wijzig rekening
+            </button>
+        </div>
         </div>
       )}
 

@@ -17,6 +17,24 @@ export const initialDrinks = [
 ];
 
 export const drinkColors = {
+  'Aquarius': '#505050',         // Darker Gray
+  'Boerke': '#505050',           // Darker Gray
+  'Cava': '#505050',             // Darker Gray
+  'Cecemel': '#505050',          // Darker Gray
+  'Chouffe': '#505050',          // Darker Gray
+  'Duvel': '#505050',            // Darker Gray
+  'Gemberthee': '#505050',       // Darker Gray
+  'Hoegaarden': '#505050',       // Darker Gray
+  'Ice Tea': '#505050',          // Darker Gray
+  'Koffie': '#505050',           // Darker Gray
+  'Pintje 33cl': '#505050',      // Darker Gray
+  "Triple d'Anvers": '#505050',  // Darker Gray
+  'Water': '#505050',            // Darker Gray
+  'Wijn': '#505050',             // Darker Gray
+};
+
+/* 
+export const drinkColors = {
     'Aquarius': '#A0522D',         // Sienna
     'Boerke': '#6B8E23',         // Olive Drab
     'Cava': '#4682B4', // Steel Blue
@@ -31,4 +49,4 @@ export const drinkColors = {
     "Triple d'Anvers": '#D8BFD8',           // Thistle
     'Water': '#800080',          // Purple
     'Wijn': '#8B4513', // Saddle Brown
-  };
+  }; */

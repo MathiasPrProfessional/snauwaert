@@ -4,15 +4,16 @@ body {
   color: white;
   margin: 0;
   padding: 0;
+  overflow: hidden; /* Prevent scrolling */
 }
 
 .app {
-  padding: 20px;
+  padding: 10px; /* Reduce padding */
   text-align: center;
 }
 
 .screen {
-  margin: 20px;
+  margin: 10px; /* Reduce margin */
 }
 
 .top-bar {
@@ -23,32 +24,28 @@ body {
 }
 
 .top-bar-button {
-  margin: 2px; /* Smaller margins for compact action buttons */
-  padding: 15px 18px; /* Smaller padding */
-  font-size: 12px; /* Smaller text size for action buttons */
-  background-color: #444;
+  margin: 2px;
+  padding: 10px 12px; /* Smaller padding */
+  font-size: 10px; /* Smaller text size */
+  background-color: #666;
   color: white;
   border: none;
   border-radius: 5px;
-}
- 
-.top-bar-button {
-  background-color: #666;
 }
 
 .person-container, .drink-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Smaller min-width */
+  gap: 8px; /* Reduce gap */
   justify-items: center;
 }
 
 .person-button {
-  width: 120px;
-  height: 60px;
-  margin: 5px;
-  padding: 5px;
-  font-size: 16px;
+  width: 100px; /* Smaller width */
+  height: 50px; /* Smaller height */
+  margin: 3px; /* Decrease margin */
+  padding: 3px; /* Decrease padding */
+  font-size: 14px; /* Smaller font size */
   cursor: pointer;
   background-color: #444;
   color: white;
@@ -56,17 +53,12 @@ body {
   border-radius: 5px;
 }
 
-
-.person-button:hover{
-  opacity: 0.8;
-}
-
-.modal-button {
-  width: 90px;
-  height: 30px;
-  margin: 10px;
-  padding: 5px;
-  font-size: 16px;
+.modal-button, .other-button {
+  width: 100px;
+  height: 50px;
+  margin: 15px; /* Reduce margin */
+  padding: 3px; /* Reduce padding */
+  font-size: 14px; /* Smaller font size */
   cursor: pointer;
   background-color: #fd0505;
   color: rgb(0, 0, 0);
@@ -74,29 +66,12 @@ body {
   border-radius: 5px;
 }
 
-.modal-button:hover {
-  opacity: 0.8;
-}
-
-.other-button {
-  width: 120px;
-  height: 60px;
-  margin: 10px;
-  padding: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #fd0505;
-  color: rgb(0, 0, 0);
-  border: none;
-  border-radius: 5px;
-}
-
-.other-button:hover {
-  opacity: 0.8;
-}
-
-.person-button.unsettled-tab {
-  border: 2px solid red;
+.button-group {
+  display: flex; /* Use flexbox for layout */
+  gap: 10px; /* Space between buttons */
+  justify-content: center; /* Center align buttons horizontally */
+  align-items: center; /* Align buttons vertically in the center */
+  margin-top: 20px; /* Add margin for spacing */
 }
 
 .modal {
@@ -109,20 +84,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; /* Ensure modal fits */
 }
 
 .modal-content {
   background-color: #333;
-  padding: 20px;
+  padding: 15px; /* Reduce padding */
   border-radius: 10px;
-  width: 80%;
-  max-width: 500px;
+  width: 70%; /* Smaller width */
+  max-width: 400px; /* Smaller max-width */
 }
 
 .close {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
+  top: 5px; /* Adjust placement */
+  right: 5px;
+  font-size: 20px; /* Smaller icon size */
   cursor: pointer;
 }
