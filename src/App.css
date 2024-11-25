@@ -26,11 +26,29 @@ body {
 .top-bar-button {
   margin: 2px;
   padding: 10px 12px; /* Smaller padding */
-  font-size: 10px; /* Smaller text size */
+  font-size: 16px; /* Smaller text size */
   background-color: #666;
   color: white;
   border: none;
   border-radius: 5px;
+}
+
+.total-due {
+  margin-top: 20px;   /* Add margin to the top */
+  margin-bottom: 5px; /* Add margin to the bottom */
+  font-size: 20px;     /* Increase font size for visibility */
+  font-weight: bold;   /* Make the text bold for emphasis */
+  color: white;      /* Use a lighter gray for text color */
+  text-align: center;  /* Center the text */
+}
+
+.rest-due {
+  margin-top: 5px;   /* Add margin to the top */
+  margin-bottom: 10px; /* Add margin to the bottom */
+  font-size: 20px;     /* Increase font size for visibility */
+  font-weight: bold;   /* Make the text bold for emphasis */
+  color: white;      /* Use a lighter gray for text color */
+  text-align: center;  /* Center the text */
 }
 
 .person-container, .drink-container {
@@ -41,11 +59,11 @@ body {
 }
 
 .person-button {
-  width: 100px; /* Smaller width */
-  height: 50px; /* Smaller height */
+  width: 120px; /* Smaller width */
+  height: 80px; /* Smaller height */
   margin: 3px; /* Decrease margin */
   padding: 3px; /* Decrease padding */
-  font-size: 14px; /* Smaller font size */
+  font-size: 16px; /* Smaller font size */
   cursor: pointer;
   background-color: #444;
   color: white;
@@ -97,8 +115,8 @@ body {
 
 .close {
   position: absolute;
-  top: 5px; /* Adjust placement */
-  right: 5px;
-  font-size: 20px; /* Smaller icon size */
+  top: 30px; /* Adjust placement */
+  right: 30px;
+  font-size: 50px; /* Smaller icon size */
   cursor: pointer;
 }

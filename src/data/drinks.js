@@ -28,7 +28,7 @@ export const drinkColors = {
   'Ice Tea': '#505050',          // Darker Gray
   'Koffie': '#505050',           // Darker Gray
   'Pintje 33cl': '#505050',      // Darker Gray
-  "Triple d'Anvers": '#505050',  // Darker Gray
+  "Tripel d'Anvers": '#505050',  // Darker Gray
   'Water': '#505050',            // Darker Gray
   'Wijn': '#505050',             // Darker Gray
 };

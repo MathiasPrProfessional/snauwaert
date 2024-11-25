@@ -117,7 +117,6 @@ function App() {
       {currentPerson === null ? (
         <div className="screen">
           <h1>Selecteer persoon</h1>
-          <div className="total-due">Totaal te betalen: €{Math.round((settledAmount + Object.values(tabs).reduce((a, c) => a + c.total, 0)) / 100).toFixed(2)}</div>
           <div className="person-container">
             {initialPeople.map((person, index) => (
               <PersonButton 
@@ -129,6 +128,7 @@ function App() {
               />
             ))}
           </div>
+          <div className="total-due">Totaal te betalen: €{Math.round((settledAmount + Object.values(tabs).reduce((a, c) => a + c.total, 0)) / 100).toFixed(2)}</div>
           <div className="rest-due">Nog te betalen: €{(Object.values(tabs).reduce((a, c) => a + c.total, 0) / 100).toFixed(2)}</div>
           <button className="other-button" onClick={resetAllTabs}>Reset Alle rekeningen</button>
         </div>
