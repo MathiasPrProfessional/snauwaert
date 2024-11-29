@@ -71,6 +71,10 @@ body {
   border-radius: 5px;
 }
 
+.unsettled-tab {
+  border: 2px solid red; /* Add a red border */
+}
+
 .modal-button, .other-button {
   width: 100px;
   height: 50px;

@@ -111,12 +111,9 @@ function App() {
   };
 
   const calculateTotalDue = () => {
-    return Object.values(tabs).reduce((total, personTab) => total + personTab.total, 0);
+    return Object.values(tabs).reduce((total, personTab) => total + personTab.total, 0.00);
   };
 
-  const calculateRestDue = () => {
-    return calculateTotalDue() - settledAmount;
-  };
 
   return (
     <div className="app">
@@ -131,30 +128,39 @@ function App() {
         <div className="screen">
           <h1>Selecteer persoon</h1>
           <div className="person-container">
-            {initialPeople.map((person, index) => (
-              <PersonButton
-                key={index}
-                person={person}
-                isActive={tabs[person]?.total > 0}
-                selectPerson={() => selectPerson(person)}
-                color={personColors[person]}
-              />
-            ))}
+            {initialPeople.map((person, index) => {
+              const isUnsettled = tabs[person]?.total > 0;
+              return (
+                <PersonButton
+                  key={index}
+                  person={person}
+                  isActive={isUnsettled}
+                  selectPerson={() => selectPerson(person)}
+                  color={personColors[person]}
+                  className={isUnsettled ? "unsettled-tab" : ""}
+                />
+              );
+            })}
           </div>
           <div className="total-due">
             Totaal te betalen: €{((settledAmount + calculateTotalDue()) / 100).toFixed(2)}
           </div>
           <div className="rest-due">
-            Nog te betalen: €{(calculateRestDue() / 100).toFixed(2)}
+            Nog te betalen: €{(calculateTotalDue() / 100).toFixed(2)}
           </div>
           <button className="other-button" onClick={resetAllTabs}>Reset Alle rekeningen</button>
         </div>
       ) : (
         <div className="screen">
-          <h2>Seleer een drank voor {currentPerson}</h2>
+          <h2>Selecteer een drank voor {currentPerson}</h2>
           <div className="drink-container">
             {initialDrinks.map((drink, index) => (
-              <DrinkButton key={index} drink={drink} color={drinkColors[drink.name]} addDrink={() => addDrink(drink.name, drink.price)} />
+              <DrinkButton 
+                key={index} 
+                drink={drink} 
+                color={drinkColors[drink.name]} 
+                addDrink={() => addDrink(drink.name, drink.price)} 
+                onClick={() => setCurrentPerson(null)} />
             ))}
           </div>
           <div className="current-tab">Huidge rekening: {tabs[currentPerson]?.drinks.join(', ')}</div>
